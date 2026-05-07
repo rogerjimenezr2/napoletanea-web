@@ -1,0 +1,148 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-cream: var(--cream);
+  --color-basil: var(--basil);
+  --color-charcoal: var(--charcoal);
+  --color-gold: var(--gold);
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-script: "Caveat", cursive;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Brand palette - inspired by the maroon logo */
+  --background: oklch(0.97 0.012 75);          /* warm cream */
+  --foreground: oklch(0.22 0.02 30);           /* charcoal */
+  --card: oklch(0.985 0.008 75);
+  --card-foreground: oklch(0.22 0.02 30);
+  --popover: oklch(0.985 0.008 75);
+  --popover-foreground: oklch(0.22 0.02 30);
+
+  --primary: oklch(0.38 0.14 22);              /* deep tomato/maroon */
+  --primary-foreground: oklch(0.97 0.012 75);
+
+  --secondary: oklch(0.45 0.09 140);           /* basil olive green */
+  --secondary-foreground: oklch(0.97 0.012 75);
+
+  --muted: oklch(0.93 0.012 75);
+  --muted-foreground: oklch(0.45 0.02 30);
+
+  --accent: oklch(0.78 0.12 75);               /* warm gold */
+  --accent-foreground: oklch(0.22 0.02 30);
+
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(0.88 0.015 60);
+  --input: oklch(0.88 0.015 60);
+  --ring: oklch(0.38 0.14 22);
+
+  --cream: oklch(0.97 0.012 75);
+  --basil: oklch(0.45 0.09 140);
+  --charcoal: oklch(0.18 0.015 30);
+  --gold: oklch(0.78 0.12 75);
+
+  --gradient-hero: linear-gradient(135deg, oklch(0.18 0.015 30 / 0.82), oklch(0.38 0.14 22 / 0.55));
+  --gradient-warm: linear-gradient(180deg, oklch(0.97 0.012 75), oklch(0.93 0.025 60));
+  --shadow-warm: 0 20px 60px -20px oklch(0.38 0.14 22 / 0.35);
+  --shadow-soft: 0 8px 30px -10px oklch(0.22 0.02 30 / 0.18);
+  --paper-noise: radial-gradient(oklch(0.22 0.02 30 / 0.04) 1px, transparent 1px);
+}
+
+.dark {
+  --background: oklch(0.18 0.015 30);
+  --foreground: oklch(0.97 0.012 75);
+  --card: oklch(0.22 0.02 30);
+  --card-foreground: oklch(0.97 0.012 75);
+  --popover: oklch(0.22 0.02 30);
+  --popover-foreground: oklch(0.97 0.012 75);
+  --primary: oklch(0.55 0.18 22);
+  --primary-foreground: oklch(0.97 0.012 75);
+  --secondary: oklch(0.5 0.1 140);
+  --secondary-foreground: oklch(0.97 0.012 75);
+  --muted: oklch(0.26 0.015 30);
+  --muted-foreground: oklch(0.7 0.02 60);
+  --accent: oklch(0.78 0.12 75);
+  --accent-foreground: oklch(0.18 0.015 30);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.55 0.18 22);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap");
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    background-image: var(--paper-noise);
+    background-size: 4px 4px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility font-display { font-family: var(--font-display); }
+@utility font-script { font-family: var(--font-script); }
+
+@utility section-pad {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+@media (min-width: 768px) {
+  .section-pad { padding-top: 7rem; padding-bottom: 7rem; }
+}
+
+@keyframes float-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@utility animate-float-up { animation: float-up 0.9s ease-out both; }
+
+@keyframes ember {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+@utility animate-ember { animation: ember 3s ease-in-out infinite; }
