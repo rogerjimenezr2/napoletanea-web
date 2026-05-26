@@ -5,8 +5,13 @@
       "handle": "filesystem"
     },
     {
-      "src": "/(.*)",
+      "src": "/api/index.js",
       "dest": "/api/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1",
+      "status": 200
     }
   ],
   "functions": {
