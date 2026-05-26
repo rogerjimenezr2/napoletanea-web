@@ -2,7 +2,7 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  preset: "vercel",
+  preset: "node-server",
   vite: {
     server: {
       allowedHosts: "all",
