@@ -1,12 +1,10 @@
-// Vite configuration for Vercel deployment
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { defineConfig } from '@lovable.dev/vite-tanstack-config';
 
 export default defineConfig({
-  preset: "node-server",
+  preset: 'vercel',
   vite: {
     server: {
-      allowedHosts: "all",
+      allowedHosts: 'all',
     },
   },
 });
-
